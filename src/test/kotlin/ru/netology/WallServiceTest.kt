@@ -1,5 +1,6 @@
 package ru.netology
 
+import junit.framework.TestCase
 import org.junit.Test
 
 import org.junit.Assert.*
@@ -15,11 +16,7 @@ class WallServiceTest {
         val update = Post(1, 2, 14052022, 7, "Виктория", "Занятие состоится", 5, 9, friends_only = false, 71, 31)
         //act
         val result = service.update(update)
-        //act
+        //assert
         assertTrue(result)
-    }
-
-    @Test
-    fun likeById() {
     }
 }
