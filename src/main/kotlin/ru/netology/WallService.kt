@@ -1,6 +1,6 @@
 package ru.netology
 
-class WallService {
+object WallService {
     private var posts = emptyArray<Post>()
     private var nextId: Int = 0
 
