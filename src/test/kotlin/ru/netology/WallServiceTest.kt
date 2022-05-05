@@ -25,7 +25,7 @@ class WallServiceTest {
         val test1 = service.add(Post(1, 2, 12052022, 7,
             "Виктория", "Занятие перенесли",
             5, 9, friends_only = false, 50, 1))
-        val test2 =  service.add(Post(2, 4, 12052022, 7,
+        val test2 = service.add(Post(2, 4, 12052022, 7,
             "Виктория", "Занятие перенесли",
             5, 9, friends_only = false, 50, 1))
         val test3 = service.add(Post(3, 5, 12052022, 7,
@@ -53,7 +53,7 @@ class WallServiceTest {
         val test2 = service.add(Post(2, 2, 12052022, 7,
             "Виктория", "Занятие перенесли",
             5, 9, friends_only = false, 50, 1))
-        val test3 =  service.add(Post(3, 2, 12052022, 7,
+        val test3 = service.add(Post(3, 2, 12052022, 7,
             "Виктория", "Занятие перенесли",
             5, 9, friends_only = false, 50, 1))
         val update = Post(3, 2, 13052022, 7,
@@ -69,7 +69,16 @@ class WallServiceTest {
     }
 
     @Test
-    fun likeById(){
+    fun likeById() {
+        // arrange
+        val service = WallService
+        val post1 = service.add(Post(1, 2, 12052022, 7,
+            "Виктория", "Занятие перенесли",
+            5, 9, friends_only = false, 50, 1))
+        // act
 
+        val post2 = post1.copy(likes=post1.likes+1)
+        // assert
+assertEquals(2,post2.likes)
     }
 }
