@@ -25,4 +25,11 @@ object WallService {
         return false
     }
 
+    fun likeById(id: Int) {
+        for ((index, post) in posts.withIndex()) {
+            if (post.idPost == id) {
+                posts[index] = post.copy(likes = post.likes + 1)
+            }
+        }
+    }
 }
