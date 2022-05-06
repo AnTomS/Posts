@@ -1,9 +1,8 @@
 package ru.netology
 
 object WallService {
-    private var posts = emptyArray<Post>()
+    var posts = emptyArray<Post>()
     private var nextId: Int = 0
-
 
     fun add(post: Post): Post {
         posts += if (posts.isEmpty()) {
@@ -25,11 +24,4 @@ object WallService {
         return false
     }
 
-    fun likeById(id: Int) {
-        for ((index, post) in posts.withIndex()) {
-            if (post.idPost == id) {
-                posts[index] = post.copy(likes = post.likes + 1)
-            }
-        }
-    }
 }

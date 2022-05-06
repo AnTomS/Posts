@@ -67,18 +67,4 @@ class WallServiceTest {
         //assert
         assertTrue(result)
     }
-
-    @Test
-    fun likeById() {
-        // arrange
-        val service = WallService
-        val post1 = service.add(Post(1, 2, 12052022, 7,
-            "Виктория", "Занятие перенесли",
-            5, 9, friends_only = false, 50, 1))
-        // act
-
-        val post2 = post1.copy(likes=post1.likes+1)
-        // assert
-assertEquals(2,post2.likes)
-    }
 }
