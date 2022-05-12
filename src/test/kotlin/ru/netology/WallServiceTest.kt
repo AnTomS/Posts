@@ -1,5 +1,6 @@
 package ru.netology
 
+import org.jetbrains.annotations.Nullable
 import org.junit.Test
 
 import org.junit.Assert.*
@@ -11,9 +12,9 @@ class WallServiceTest {
         // arrange
         val service = WallService
         //act
-        val result = service.add(Post(1, 2, 12052022, 7,
-            "Виктория", "Занятие перенесли",
-            5, 9, friends_only = false, 50, 1))
+        val result = service.add(Post(1,1,2,2,1205202,"Занятие перенесли",1,1,false,
+            14,"text", 14, null,null,null,null,null,1,null,true,true,
+            true,true,true,true,))
         //assert
         assertTrue(result.idPost > 0)
     }
@@ -22,23 +23,31 @@ class WallServiceTest {
     fun updateFalse() {
         // arrange
         val service = WallService
-        val test1 = service.add(Post(1, 2, 12052022, 7,
-            "Виктория", "Занятие перенесли",
-            5, 9, friends_only = false, 50, 1))
-        val test2 = service.add(Post(2, 4, 12052022, 7,
-            "Виктория", "Занятие перенесли",
-            5, 9, friends_only = false, 50, 1))
-        val test3 = service.add(Post(3, 5, 12052022, 7,
-            "Виктория", "Занятие перенесли",
-            5, 9, friends_only = false, 50, 1))
-        val update = Post(7, 2, 13052022, 7,
-            "Виктория", "Занятие перенесли",
-            5, 9, friends_only = false, 50, 1)
+        val test1 = service.add(Post(1,1,2,2,1205202,
+            "Занятие перенесли",1,1, false, 14,
+            "text", 14, null,null,null,null,null,
+            1,null,true,true, true,true,
+            true,true,))
+        val test2 = service.add(Post(2,2,3,3,1205202,
+            "Занятие перенесли",1,1, false, 26,
+            "text", 11, null,null,null,null,null,
+            1,null,true,true, true,true,
+            true,true,))
+        val test3 = service.add(Post(3,3,3,3,1205202,
+            "Занятие перенесли",1,1, false, 12,
+            "text", 10, null,null,null,null,null,
+            1,null,true,true, true,true,
+            true,true,))
+        val update = Post(6,1,4,4,1205202,
+            "Занятие перенесли",1,1, false, 14,
+            "text", 14, null,null,null,null,null,
+            1,null,true,true, true,true,
+            true,true,)
         //act
         service.add(test1)
         service.add(test2)
         service.add(test3)
-        val result = WallService.update(update)
+        val result = service.update(update)
         //assert
         assertFalse(result)
     }
@@ -47,18 +56,26 @@ class WallServiceTest {
     fun updateTrue() {
         // arrange
         val service = WallService
-        val test1 = service.add(Post(1, 2, 12052022, 7,
-            "Виктория", "Занятие перенесли",
-            5, 9, friends_only = false, 50, 1))
-        val test2 = service.add(Post(2, 2, 12052022, 7,
-            "Виктория", "Занятие перенесли",
-            5, 9, friends_only = false, 50, 1))
-        val test3 = service.add(Post(3, 2, 12052022, 7,
-            "Виктория", "Занятие перенесли",
-            5, 9, friends_only = false, 50, 1))
-        val update = Post(3, 2, 13052022, 7,
-            "Виктория", "Занятие перенесли",
-            5, 1, friends_only = false, 50, 1)
+        val test1 = service.add(Post(1,1,2,2,1205202,
+            "Занятие перенесли",1,1, false, 14,
+            "text", 14, null,null,null,null,null,
+            1,null,true,true, true,true,
+            true,true,))
+        val test2 = service.add(Post(2,2,3,3,1205202,
+            "Занятие перенесли",1,1, false, 26,
+            "text", 11, null,null,null,null,null,
+            1,null,true,true, true,true,
+            true,true,))
+        val test3 = service.add(Post(3,3,3,3,1205202,
+            "Занятие перенесли",1,1, false, 12,
+            "text", 10, null,null,null,null,null,
+            1,null,true,true, true,true,
+            true,true,))
+        val update = Post(3,1,4,4,1205202,
+            "Занятие перенесли",1,1, false, 14,
+            "text", 14, null,null,null,null,null,
+            1,null,true,true, true,true,
+            true,true,)
         //act
         service.add(test1)
         service.add(test2)

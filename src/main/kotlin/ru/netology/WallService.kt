@@ -4,6 +4,7 @@ object WallService {
     var posts = emptyArray<Post>()
     private var nextId: Int = 0
 
+
     fun add(post: Post): Post {
         posts += if (posts.isEmpty()) {
             post.copy(idPost = 0)
@@ -22,6 +23,7 @@ object WallService {
             }
         }
         return false
+
     }
 
 }
