@@ -1,9 +1,6 @@
 package ru.netology.attachment
 
-class AttachmentVideo(variable : Video) : Attachment {
-    override val type: String = "Video"
-    private val video = variable
-    override fun toString(): String {
-        return "AttachmentVideo(type='$type', video=$video)"
-    }
+class AttachmentVideo : Attachment {
+    override val type: String = "video"
+    val video: Video = Video()
 }

@@ -1,9 +1,8 @@
 package ru.netology.attachment
 
 data class Photo(
-    val id: Long,
-    val albumId: Long,
-    val ownerId: Long,
-    val dateAdd: String,
-    val text: String
+    val id: Long=1,
+    val albumId: Long=2,
+    val ownerId: Long=2,
+    val text: String = "Встреча"
     )
