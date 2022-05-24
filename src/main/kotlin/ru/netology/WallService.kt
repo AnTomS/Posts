@@ -2,6 +2,7 @@ package ru.netology
 
 object WallService {
     var posts = emptyArray<Post>()
+    private var comments = emptyArray<Comment>()
     private var nextId: Int = 0
 
 
@@ -23,6 +24,18 @@ object WallService {
             }
         }
         return false
+
+    }
+
+    fun createComment(comment: Comment): Comment {
+            for (post in posts) {
+                if (post.idPost==comment.id){
+                    comments += comment
+                    return comments.last()
+                }
+            }
+
+        throw PostNotFoundException ("Ошибка, нельзя добавить комментарий к несуществующему посту")
 
     }
 
