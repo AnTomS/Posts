@@ -27,11 +27,10 @@ object WallService {
 
     }
 
-    fun createComment(comment: Comment): Comment {
+    fun createComment(comment: Comment){
             for (post in posts) {
                 if (post.idPost==comment.id){
                     comments += comment
-                    return comments.last()
                 }
             }
 

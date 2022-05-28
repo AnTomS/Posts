@@ -1,6 +1,5 @@
 package ru.netology
 
-import org.jetbrains.annotations.Nullable
 import org.junit.Test
 
 import org.junit.Assert.*
@@ -120,6 +119,7 @@ class WallServiceTest {
     @Test(expected = PostNotFoundException::class)
     fun createCommentThrowException() {
         // arrange
+        val service = WallService
         val test1 = Post(
             3, 3, 3, 3, 1205202,
             "Занятие перенесли", 1, 1, false, 12,
@@ -130,7 +130,7 @@ class WallServiceTest {
         val testComment = Comment(1, 3, 1205202, "исключение")
         //act
         WallService.add(test1)
-        val result = WallService.createComment(testComment)
+        WallService.createComment(testComment)
     }
 
     @Test(expected = PostNotFoundException::class)
