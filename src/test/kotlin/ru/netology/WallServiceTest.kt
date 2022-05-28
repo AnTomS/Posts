@@ -127,7 +127,7 @@ class WallServiceTest {
             1, null, true, true, true, true,
             true, true,
         )
-        val testComment = Comment(1, 2, 1205202, "исключение")
+        val testComment = Comment(1, 3, 1205202, "исключение")
         //act
         WallService.add(test1)
         val result = WallService.createComment(testComment)
