@@ -27,15 +27,15 @@ object WallService {
 
     }
 
-    fun createComment(comment: Comment){
-            for (post in posts) {
-                if (post.idPost==comment.id){
-                    comments += comment
-                }
-            }
+    fun createComment(comment: Comment): Comment {
+        for (post in posts) {
+            if (post.idPost == comment.postId) {
+                comments += comment
 
-        throw PostNotFoundException ("Ошибка, нельзя добавить комментарий к несуществующему посту")
+            } else
+                throw PostNotFoundException("Ошибка, нельзя добавить комментарий к несуществующему посту")
 
+        }
+        return comments.last()
     }
-
 }

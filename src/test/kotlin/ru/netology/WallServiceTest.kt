@@ -5,6 +5,32 @@ import org.junit.Test
 import org.junit.Assert.*
 
 class WallServiceTest {
+    @Test
+    fun addComment() {
+// arrange
+        val service = WallService
+        val test1 = Post(
+            1, 3, 3, 3, 1205202,
+            "Занятие перенесли", 1, 1, false, 12,
+            "text", 10, null, null, null, null, null,
+            1, null, true, true, true, true,
+            true, true,
+        )
+        val testComment = Comment(0, 2, 1205202, "комментарий успешно добавлен")
+        //act
+        WallService.add(test1)
+        service.createComment(testComment)
+        assertEquals("комментарий успешно добавлен", testComment.text)
+    }
+
+    @Test(expected = PostNotFoundException::class)
+    fun createCommentThrowException() {
+        val service = WallService
+        val comment = Comment(postId = 1,1,111,"")
+        service.createComment(comment)
+    }
+
+
 
     @Test
     fun testIdNotZero() {
@@ -116,37 +142,5 @@ class WallServiceTest {
         assertTrue(result)
     }
 
-    @Test(expected = PostNotFoundException::class)
-    fun createCommentThrowException() {
-        // arrange
-        val service = WallService
-        val test1 = Post(
-            3, 3, 3, 3, 1205202,
-            "Занятие перенесли", 1, 1, false, 12,
-            "text", 10, null, null, null, null, null,
-            1, null, true, true, true, true,
-            true, true,
-        )
-        val testComment = Comment(1, 3, 1205202, "исключение")
-        //act
-        WallService.add(test1)
-        WallService.createComment(testComment)
-    }
 
-    @Test(expected = PostNotFoundException::class)
-    fun createComment() {
-// arrange
-        val test1 = Post(
-            3, 3, 3, 3, 1205202,
-            "Занятие перенесли", 1, 1, false, 12,
-            "text", 10, null, null, null, null, null,
-            1, null, true, true, true, true,
-            true, true,
-        )
-        val testComment = Comment(3, 2, 1205202, "комментарий успешно добавлен")
-        //act
-        WallService.add(test1)
-        val result = WallService.createComment(testComment)
-        assertEquals("комментарий успешно добавлен", testComment.text)
-    }
 }
