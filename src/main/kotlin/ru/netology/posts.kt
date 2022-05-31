@@ -32,6 +32,6 @@ data class Post(
     var isFavorite: Boolean,
 )
 
-fun main () {
+fun main() {
     println("ООП: Объекты и классы")
 }

@@ -10,26 +10,26 @@ class WallServiceTest {
 // arrange
         val service = WallService
         val test1 = Post(
-            1, 3, 3, 3, 1205202,
+            0, 3, 3, 3, 1205202,
             "Занятие перенесли", 1, 1, false, 12,
             "text", 10, null, null, null, null, null,
             1, null, true, true, true, true,
             true, true,
         )
-        val testComment = Comment(0, 2, 1205202, "комментарий успешно добавлен")
+        val testComment = Comment(1, 2, 1205202, "комментарий успешно добавлен")
+
         //act
         WallService.add(test1)
-        service.createComment(testComment)
+        WallService.createComment(testComment, 1)
         assertEquals("комментарий успешно добавлен", testComment.text)
     }
 
     @Test(expected = PostNotFoundException::class)
     fun createCommentThrowException() {
         val service = WallService
-        val comment = Comment(postId = 1,1,111,"")
-        service.createComment(comment)
+        val comment = Comment(postId = 2, 1, 111, "")
+        service.createComment(comment, 1)
     }
-
 
 
     @Test
